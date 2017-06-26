@@ -1,0 +1,13 @@
+body {
+    background: black;
+    color: white;
+}
+
+.forced-center {
+    display: block;
+    text-align: center;
+}
+
+.error-color {
+    color: #ff0033;
+}

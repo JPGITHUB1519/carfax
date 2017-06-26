@@ -1,0 +1,21 @@
+1- Download Wamp2.c
+
+	https://sourceforge.net/projects/wampserver/files/WampServer%202/WampServer%202.0/WampServer2.0c.exe/download
+
+2- Download ntwdblib.dll
+	
+	http://www.dlldll.com/ntwdblib.dll_download.html
+
+3- Replace ntwdblib.dll in C:\wamp\bin\apache\apache2.2.8\bin Folder
+
+4- Replace ntwdblib.dll in C:\wamp\bin\php\php5.2.6 Folder
+
+5- Enable php_msql extension on wamp o modify the php.ini file uncommenting * php_msql.dll
+
+5- Create a custom SQL SERVER user
+
+	if has error login the new user:
+		https://stackoverflow.com/questions/34430550/a-connection-was-successfully-established-with-the-server-but-then-an-error-occ
+		-open Management Studio - Rt click on instance - go to properties - select Security - Under Server Authentication, check SQL Server and Windows Authentication Mode - hit OK	
+                Restart the server using configuration manager.
+6- Enjoy!
