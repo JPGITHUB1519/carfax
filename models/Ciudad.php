@@ -6,7 +6,7 @@ class Ciudad
     public $descripcion;
     public $link;
 
-    function __construct($link) 
+    public function __construct($link) 
     {
         $this->link = $link;
     }
@@ -22,13 +22,18 @@ class Ciudad
     }
 
     public function update($ciudad) {
-        $sql = sprintf("UPDATE ciudades SET descripcion = '%s' WHERE codigo_ciudad = %s", $ciudad->descripcion, $ciudad->id);
+        $sql = sprintf("UPDATE ciudades SET descripcion = '%s' WHERE codigo_ciudad = '%s'", $ciudad->descripcion, $ciudad->id);
         return ejecutar($sql, $this->link);
     }
 
     public function delete($id) {
         $sql = sprintf("DELETE FROM ciudades WHERE codigo_ciudad = %s", $id);
         return ejecutar($sql, $this->link);
+    }
+
+    public function getById($id) {
+        $sql = sprintf("SELECT * FROM ciudades WHERE codigo_ciudad = '%s'", $id);
+        return buscame_fila($sql, $this->link);
     }
 
 }

@@ -4,24 +4,44 @@
     include('../models/Ciudad.php');
 
     if (isset($_SESSION['id']) && $_SESSION['id'] == true) {
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $ciudad = new Ciudad($link);
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {       
+            $ciudad_obj = new Ciudad($link);
+            // si hay parametro en el get, muestrame la ciudad en especifico
+            $id_ciudad = $_GET['id'];
+            if ($id_ciudad) {
+                $ciudad = $ciudad_obj->getById($id_ciudad);
+            }
+            // seleccionar todos
+            $ciudades = $ciudad_obj->select();
+            // eliminar
             if ($_GET['action'] == 'delete') {
                 $id = $_GET['id'];
-                $ciudad->delete($id);
+                $ciudad_obj->delete($id);
+                $msg_status = "Se ha Eliminado la ciudad Exitosamente";
                 header('Location: ' . '/Carfax/controllers/CiudadesController.php');
             }
-            $ciudades = $ciudad->select();
-            include('../templates/ciudades.view.php');
+            include('../templates/admin/ciudades.view.php');
             
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $ciudad = new Ciudad($link);
-                $ciudad->descripcion = $_POST['descripcion'];
-                $ciudad->insert($ciudad);
-                $ciudades = $ciudad->select();
-                include('../templates/ciudades.view.php'); 
+            $codigo_ciudad = $_POST['codigo_ciudad'];
+            $ciudad_obj = new Ciudad($link);
+            $ciudad_obj->descripcion = $_POST['descripcion'];
+            // Ingresar nuevo
+            if(!$codigo_ciudad) {       
+                $ciudad_obj->insert($ciudad_obj);
+                $msg_status = "Se ha Insertado la ciudad Exitosamente";
+                  
+            }
+            // actualizar
+            else {
+                $ciudad_obj->id = $codigo_ciudad;
+                $ciudad_obj->update($ciudad_obj);
+                $msg_status = "Se ha Actualizado la ciudad Exitosamente";
+            }
+            $ciudades = $ciudad_obj->select();
+            include('../templates/admin/ciudades.view.php');
         } 
     }
     else {

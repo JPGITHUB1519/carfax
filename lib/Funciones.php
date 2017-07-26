@@ -39,6 +39,11 @@ function traer_fila($resultado){
     return $fila;
 } 
 
+function dd($value) {
+    var_dump($value);
+    die();
+}
+
 
 
 

@@ -18,6 +18,7 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Log-in</button>
                 </div>
+                <h3><?php echo $invalid_login ?></h3>
             </form>
         </div>
     </div>
