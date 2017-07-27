@@ -2,7 +2,7 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../public/css/style.css">
     <script type="text/javascript" src="../public/js/main.js"></script>
     <script type="text/javascript" src="../public/js/jquery-3.2.1.min.js"></script>
