@@ -14,7 +14,8 @@
             session_start();
             $_SESSION["id"] = $result[0];
             $_SESSION["username"] = $result[1];
-            header('Location:' . '/Carfax/controllers/CiudadesController.php');
+            $_SESSION["email"] = $result[4];
+            header('Location:' . '/Carfax/controllers/IndexController.php');
         }
         else {
             $invalid_login = "Error de Usuario o Contrase&ntilde;a";

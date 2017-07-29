@@ -21,7 +21,7 @@ class Usuario
     public $facebook;
     public $twitter;
     public $instagram;
-    public $whatapp;
+    public $whatsapp;
     public $youtube;
     public $google_plus;
 
@@ -30,7 +30,29 @@ class Usuario
     }
 
     public function insert($usuario) {
-        $sql = sprintf("INSERT INTO dbo.usuarios (codigo_usuario, tipo_usuario, fecha_registro, nombre, fecha_nacimiento, clave, correo, estado, direccion, codigo_ubicacion, sexo, login, identidad, telefono, foto, contacto, facebook, twitter, instagram, whatsapp, youtube, [google+] ) VALUES ('%s', '%s', :'%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", $usuarios->codigo_usuario; $usuarios->tipo_usuario; $usuarios->fecha_registro; $usuarios->nombre; $usuarios->fecha_nacimiento; $usuarios->clave; $usuarios->correo; $usuarios->estado; $usuarios->direccion; $usuarios->codigo_ubicacion; $usuarios->sexo; $usuarios->login; $usuarios->identidad; $usuarios->telefono; $usuarios->foto; $usuarios->contacto; $usuarios->facebook; $usuarios->twitter; $usuarios->instagram; $usuarios->whatapp; $usuarios->youtube; $usuarios->google_plus);
+        $sql = sprintf("INSERT INTO usuarios (tipo_usuario, fecha_registro, nombre, fecha_nacimiento, clave, correo, estado, direccion, codigo_ubicacion, sexo, login, identidad, telefono, foto, contacto, facebook, twitter, instagram, whatsapp, youtube, [google+] ) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", $usuario->tipo_usuario, $usuario->fecha_registro, $usuario->nombre, $usuario->fecha_nacimiento, $usuario->clave, $usuario->correo, $usuario->estado, $usuario->direccion, $usuario->codigo_ubicacion, $usuario->sexo, $usuario->login, $usuario->identidad, $usuario->telefono, $usuario->foto, $usuario->contacto, $usuario->facebook, $usuario->twitter, $usuario->instagram, $usuario->whatsapp, $usuario->youtube, $usuario->google_plus);
         return ejecutar($sql, $this->link);
+    }
+
+    public function select() {
+        $sql = sprintf("SELECT * FROM usuarios");
+        return traer_filas($sql, $this->link);
+    }
+
+    public function update($usuario) {
+        $sql = sprintf("UPDATE usuarios SET tipo_usuario = '%s', fecha_registro = '%s', nombre = '%s', fecha_nacimiento = '%s', clave = '%s', correo = '%s', estado = '%s', direccion = '%s', codigo_ubicacion = '%s', sexo = '%s', login = '%s', identidad = '%s', telefono = '%s', foto = '%s', contacto = '%s', facebook = '%s', twitter = '%s', instagram = '%s', whatsapp = '%s', youtube = '%s', [google+] = '%s' WHERE codigo_usuario = '%s' ", $usuario->tipo_usuario, $usuario->fecha_registro, $usuario->nombre, $usuario->fecha_nacimiento, $usuario->clave, $usuario->correo, $usuario->estado, $usuario->direccion, $usuario->codigo_ubicacion, $usuario->sexo, $usuario->login, $usuario->identidad, $usuario->telefono, $usuario->foto, $usuario->contacto, $usuario->facebook, $usuario->twitter, $usuario->instagram, $usuario->whatsapp, $usuario->youtube, $usuario->google_plus, $usuario->codigo_usuario);
+        return ejecutar($sql, $this->link);
+    }
+
+    public function delete($codigo_usuario) {
+        $sql = sprintf("DELETE FROM usuarios WHERE codigo_usuario = '%s' ", $codigo_usuario);
+        return ejecutar($sql, $this->link);
+    }
+
+    public function getById($codigo_usuario) {
+        $sql = sprintf("SELECT * FROM usuarios WHERE codigo_usuario = '%s' ", $codigo_usuario);
+        // var_dump(buscame_fila($sql, $this->link));
+        // die();
+        return buscame_fila($sql, $this->link);
     }
 }

@@ -164,6 +164,9 @@
                             <li>
                                 <a href="/Carfax/controllers/UbicacionesController.php">Ubicaciones</a>
                             </li>
+                            <li>
+                                <a href="/Carfax/controllers/UsuariosController.php">Usuarios</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
