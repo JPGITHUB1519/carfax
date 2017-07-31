@@ -3,6 +3,7 @@
 <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap_4.css">
     <link rel="stylesheet" type="text/css" href="../public/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../public/css/style.css">
     <script type="text/javascript" src="../public/js/main.js"></script>

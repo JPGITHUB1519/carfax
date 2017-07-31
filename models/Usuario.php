@@ -34,6 +34,11 @@ class Usuario
         return ejecutar($sql, $this->link);
     }
 
+    public function insertWithDefaultDate($usuario) {
+        $sql = sprintf("INSERT INTO usuarios (tipo_usuario, fecha_registro, nombre, fecha_nacimiento, clave, correo, estado, direccion, codigo_ubicacion, sexo, login, identidad, telefono, foto, contacto, facebook, twitter, instagram, whatsapp, youtube, [google+] ) VALUES ('%s', GETDATE(), '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", $usuario->tipo_usuario, $usuario->nombre, $usuario->fecha_nacimiento, $usuario->clave, $usuario->correo, $usuario->estado, $usuario->direccion, $usuario->codigo_ubicacion, $usuario->sexo, $usuario->login, $usuario->identidad, $usuario->telefono, $usuario->foto, $usuario->contacto, $usuario->facebook, $usuario->twitter, $usuario->instagram, $usuario->whatsapp, $usuario->youtube, $usuario->google_plus);
+        return ejecutar($sql, $this->link);
+    }
+
     public function select() {
         $sql = sprintf("SELECT * FROM usuarios");
         return traer_filas($sql, $this->link);
@@ -55,4 +60,19 @@ class Usuario
         // die();
         return buscame_fila($sql, $this->link);
     }
+
+    // info de usuario + infromacion de ubicacion
+    public function getByIdWithLocaleInfo($codigo_usuario) {
+        $sql = sprintf("SELECT usuarios.*, ubicaciones.descripcion as ubicacion, ciudades.descripcion as ciudad FROM usuarios INNER JOIN ubicaciones on usuarios.codigo_ubicacion = ubicaciones.codigo_ubicacion
+            INNER JOIN ciudades on ubicaciones.codigo_ciudad = ciudades.codigo_ciudad
+            WHERE usuarios.codigo_usuario = '%s' ", $codigo_usuario);
+        return buscame_fila($sql, $this->link);
+    }
+
+    public function getLastInserted() {
+        $sql = "SELECT * FROM usuarios WHERE codigo_usuario = (SELECT MAX(codigo_usuario) FROM usuarios)";
+        return buscame_fila($sql, $this->link);
+    }
+
+
 }

@@ -4,7 +4,7 @@
     include('../models/Usuario.php');
     include('../models/Ubicacion.php');
 
-    if (isset($_SESSION['id']) && $_SESSION['id'] == true) {
+    if (isset($_SESSION['id']) && $_SESSION['id']) {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {   
             $usuario_obj = new Usuario($link);
             $ubicacion_obj = new Ubicacion($link);

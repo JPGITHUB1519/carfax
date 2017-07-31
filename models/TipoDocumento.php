@@ -8,8 +8,9 @@ class TipoDocumento {
         $this->link = $link;
     }
 
-    public function insert($tipo_documento) {
-        $sql = 
+    public function select() {
+        $sql = "SELECT * FROM tipos_documentos";
+        return traer_filas($sql, $this->link);
     }
 }
 

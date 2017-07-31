@@ -144,7 +144,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="/Carfax/controllers/LogoutController.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -156,8 +156,11 @@
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>Mantenimientos<i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Mantenimientos <i class="fa fa-fw fa-arrows-v"></i></a>
                         <ul id="demo" class="collapse">
+                            <li>
+                                <a href="/Carfax/controllers/DocumentosController.php">Documentos</a>
+                            </li>
                             <li>
                                 <a href="/Carfax/controllers/CiudadesController.php">Ciudades</a>
                             </li>

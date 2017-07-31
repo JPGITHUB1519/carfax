@@ -75,7 +75,7 @@
             <div class="form-group">
                 <label>Sexo</label>
                 <select name="sexo" class="form-control">
-                    <?php if ($ubicacion[10] == "f") :?>
+                    <?php if ($usuario[10] == "f") :?>
                         <option value="f" selected>F</option>
                         <option value="m">M</option>
                     <?php else : ?>

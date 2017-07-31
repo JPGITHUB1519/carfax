@@ -5,9 +5,11 @@
 
     if (isset($_SESSION['id']) && $_SESSION['id']) {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $documento_id = $_GET['id'];
             $documento_obj = new Documento($link);
-            $vehiculos = $documento_obj->getVehiculos();
-            include('../templates/index.view.php');
+            $vehiculo = $documento_obj->getById($documento_id);
+            $vehiculo_documentos = $documento_obj-> getVehiculoDocumentos($documento_id);
+            include('../templates/vehiculo-permalink.view.php');
         }
     }
     else {
