@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">JP Carfax</a>
+                <a class="navbar-brand" href="http://localhost/Carfax/controllers/UbicacionesController.php">JP Carfax</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -134,14 +134,14 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION["username"] ?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="/Carfax/controllers/IndexController.php"><i class="fa fa-fw fa-home"></i>Home</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                            <a href="/Carfax/controllers/ProfileController.php"><i class="fa fa-fw fa-user"></i>Perfil</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
+                        <!-- <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Setting</a>
+                        </li> -->
                         <li class="divider"></li>
                         <li>
                             <a href="/Carfax/controllers/LogoutController.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -152,9 +152,9 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <!-- <li class="active">
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Mantenimientos <i class="fa fa-fw fa-arrows-v"></i></a>
                         <ul id="demo" class="collapse">
@@ -172,7 +172,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li>
                     <li>
@@ -192,7 +192,7 @@
                     </li>
                     <li>
                         <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

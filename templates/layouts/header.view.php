@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Carfax</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../public/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../public/css/style.css">

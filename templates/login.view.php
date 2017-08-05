@@ -19,6 +19,7 @@
                     <button type="submit" class="btn btn-default">Log-in</button>
                 </div>
                 <h3><?php echo $invalid_login ?></h3>
+                <h3>No tienes una cuenta? <a href="/Carfax/controllers/SignupController.php">Registrate</a></h3>
             </form>
         </div>
     </div>

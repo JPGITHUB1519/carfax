@@ -30,3 +30,11 @@
 .form-select {
     min-height: 35px;
 }
+
+.car-new-document-link {
+    padding-top: 1em;
+    display: block;
+    color: white;
+    font-size: 1.2em;
+    color: blue;
+}

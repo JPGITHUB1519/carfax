@@ -6,7 +6,7 @@
     if (isset($_SESSION['id']) && $_SESSION['id']) {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $documento_obj = new Documento($link);
-            $vehiculos = $documento_obj->getVehiculos();
+            $vehiculos = $documento_obj->getVehiculosByUsuario($_SESSION['id']);
             include('../templates/index.view.php');
         }
     }

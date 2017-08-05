@@ -9,6 +9,7 @@
     </div>
 </div>
 <div class="row">
+  <?php if ($vehiculos): ?> 
     <?php foreach($vehiculos as $vehiculo): ?>
     <!-- <div class="col-xs-3">
         <a href="/Carfax/controllers/VehiculoPermalinkController.php?id=<?php echo $vehiculo[0] ?>">
@@ -25,7 +26,8 @@
       <img class="card-img-top img-responsive" src="<?php echo $vehiculo[14] ?>" class="img-responsive" alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title text-center"><?php echo $vehiculo[1] ?></h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <p class="card-text"><strong>Comentario : </strong><?php echo $vehiculo[12] ?></p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><strong>Fecha Registro:</strong> <?php echo $vehiculo[5] ?></li>
@@ -38,6 +40,12 @@
       </div>
     </div>
     <?php endforeach; ?>
+  <?php else : ?>
+    <div class="col-xs-12">
+      <h1 class="text-center">No tienes vehiculos Registrados</h1>
+      <a href="/Carfax/controllers/DocumentosController.php"  class="text-center car-new-document-link">Registrar Nuevo Vehiculo</a>
+    </div>
+  <?php endif; ?>
 </div>
 <?php require('layouts/footer.view.php') ?>
 

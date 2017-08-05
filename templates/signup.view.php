@@ -33,7 +33,7 @@
             <label>Codigo Ubicaci&oacute;n</label>
             <select class="form-control" name="codigo_ubicacion">
             <?php foreach($ubicaciones as $ubicacion): ?>
-                <option value="<?php echo $ubicacion[0] ?>"><?php echo $ubicacion[0] ?></option>
+                <option value="<?php echo $ubicacion[0] ?>"><?php echo $ubicacion[1] ?></option>
             <?php endforeach; ?>
             </select>
         </div>

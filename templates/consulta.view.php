@@ -16,6 +16,7 @@
             <select class="form-control form-select" name="tipo_documento">
             <?php foreach($tipos_documentos as $tipo_documento): ?>
                 <!-- seleccionar codigo de usuario por default -->
+                <?php if ($tipo_documento[0] == 1) continue ?>
                 <?php if ($tipo_documento[0] == $_GET['tipo_documento']) :?>
                     <option value="<?php echo $tipo_documento[0] ?>" selected><?php echo $tipo_documento[1] ?></option>
                 <?php else : ?>
@@ -35,6 +36,7 @@
                 <?php else : ?>
                     <option value="<?php echo $vehiculo[0] ?>"><?php echo $vehiculo[1] ?></option>
                 <?php endif; ?>
+                <option value="">No Aplicar</option>
             <?php endforeach; ?>
 
             </select>

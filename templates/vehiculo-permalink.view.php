@@ -6,9 +6,11 @@
     <div class="col-xs-12 card-title">
         <h2>Detalle de Documentos para el Vehiculo: <strong><?php echo $vehiculo[1] ?></strong></h2>
         <img src="<?php echo $vehiculo[14] ?>" class="img-responsive card-car-image">
+        <a href="/Carfax/controllers/DocumentosController.php?vehiculo=<?php echo $vehiculo[0] ?>" class="text-center car-new-document-link">Agregar nuevo Documento para este Vehiculo</a>
     </div>
 </div>
 <div class="row">
+  <?php if($vehiculo_documentos) :?>
     <?php foreach($vehiculo_documentos as $vehiculo_documento): ?>
         <div class="card vehiculo-documento-card">
           <!-- <img class="card-img-top" src="http://localhost/Carfax/public/img/ford_b_max.jpg" alt="Card image cap"> -->
@@ -28,6 +30,11 @@
           </ul>
         </div>
     <?php endforeach; ?>
+  <?php else : ?>
+     <div class="col-xs-12">
+      <h1 class="text-center">No hay Documentos para este vehiculo</h1>
+    </div>
+  <?php endif; ?>
 </div>
 
 <?php require('layouts/footer.view.php') ?>

@@ -15,6 +15,7 @@
                 $documento = $documento_obj->getById($id_documento);
             }
             $documentos = $documento_obj->getByUsuarios($_SESSION['id']);
+            $vehiculos = $documento_obj->getVehiculos();
             $tipos_documentos = $tipo_documento_obj->select();
             $usuarios = $usuario_obj->select();
             // eliminar
@@ -63,6 +64,12 @@
             $documento_obj->update($documento_obj);
             $msg_status = "Se ha Actualizado la documento Exitosamente";
         }
+
+        // si es un documento que se va a ingresar, actualizar el valor(Kilometraje) del vehiculo
+        if ($documento_obj->documento_afectado) {
+            $documento_obj->updateDocumentoValor($documento_obj);
+        }
+
         $documentos = $documento_obj->getByUsuarios($_SESSION['id']);
         $tipos_documentos = $tipo_documento_obj->select();
         $usuarios = $usuario_obj->select();
