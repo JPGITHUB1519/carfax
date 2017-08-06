@@ -27,6 +27,8 @@
             <li class="list-group-item"><strong>Estado: </strong><?php echo $vehiculo_documento[11] ?></li>
             <li class="list-group-item"><strong>Referencia: </strong> <?php echo $vehiculo_documento[13] ?></li>
             <li class="list-group-item"><strong>Comentario: </strong> <?php echo $vehiculo_documento[12] ?></li>
+            <li class="list-group-item text-center"><a href="/Carfax/controllers/DocumentosController.php?id=<?php echo $vehiculo_documento[0]?>">Editar</a></li>
+
           </ul>
         </div>
     <?php endforeach; ?>

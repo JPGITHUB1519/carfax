@@ -70,6 +70,7 @@
                 <li class="list-group-item"><strong>Estado: </strong><?php echo $documento[11] ?></li>
                 <li class="list-group-item"><strong>Referencia: </strong> <?php echo $documento[13] ?></li>
                 <li class="list-group-item"><strong>Comentario: </strong> <?php echo $documento[12] ?></li>
+                <li class="list-group-item text-center"><a href="/Carfax/controllers/DocumentosController.php?id=<?php echo $documento[0]?>">Editar</a></li>
               </ul>
             </div>
         <?php endforeach; ?>

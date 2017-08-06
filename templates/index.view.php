@@ -34,8 +34,9 @@
         <li class="list-group-item"><strong>Valor: </strong> <?php echo $vehiculo[7] ?></li>
         <li class="list-group-item"><strong>Estado: </strong><?php echo $vehiculo[11] ?></li>
         <li class="list-group-item"><strong>Referencia: </strong> <?php echo $vehiculo[13] ?></li>
+        <li class="list-group-item"><strong>Gasto Total: </strong> <?php echo $vehiculo[15] ?></li>
       </ul>
-      <div class="card-block">
+      <div class="card-block text-center">
         <a href="/Carfax/controllers/VehiculoPermalinkController.php?id=<?php echo $vehiculo[0] ?>" class="card-link text-center">Ver Documentos del Vehiculo </a>
       </div>
     </div>

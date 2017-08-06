@@ -35,7 +35,7 @@ class Documento {
 
     public function updateDocumentoValor($documento)
     {
-        $sql = sprintf("UPDATE documentos SET valor = '%s' WHERE documento = '%s' ", $documento->valor, $documento->documento);
+        $sql = sprintf("UPDATE documentos SET valor = '%s' WHERE documento = '%s' ", $documento->valor, $documento->documento_afectado);
         return ejecutar($sql, $this->link);
     }
 
@@ -44,6 +44,7 @@ class Documento {
         return traer_filas($sql, $this->link);
     }
 
+    // obtener solo los documentos(no vehiculos)
     public function getAllButNoVehiculos($codigo_usuario)
     {
         $sql = "SELECT documentos.*, tipos_documentos.descripcion as tipo_documento_detalle FROM documentos 
@@ -52,6 +53,7 @@ class Documento {
         return traer_filas($sql, $this->link);
     }
 
+    // obtener solo los documentos(no vehiculos) de un usuario en especifico
     public function getAllButNoVehiculosByUsuario($codigo_usuario) {
         $sql = sprintf("SELECT documentos.*, tipos_documentos.descripcion as tipo_documento_detalle FROM documentos 
         INNER JOIN tipos_documentos on tipos_documentos.tipo_documento = documentos.tipo_documento 
@@ -72,24 +74,34 @@ class Documento {
         return buscame_fila($sql, $this->link);
     }
 
+    // obtener todos los documentos de un usuariio
     public function getByUsuarios($codigo_usuario)
     {
         $sql = sprintf("SELECT * FROM documentos WHERE codigo_usuario = '%s' ", $codigo_usuario);
         return traer_filas($sql, $this->link);
     }
 
+    // obtener todos los vehicukos
     public function getVehiculos()
     {
         $sql = sprintf("SELECT * FROM documentos WHERE tipo_documento = '%s'", '1');
         return traer_filas($sql, $this->link);
     }
 
+    // obtener los vehiculos de un usuario y su gastos
     public function getVehiculosByUsuario($codigo_usuario)
     {
-        $sql = sprintf("SELECT * FROM documentos WHERE tipo_documento = '%s' and codigo_usuario = '%s'", '1', $codigo_usuario);
+        $sql = sprintf("SELECT documentos.*, ISNULL(gastos_por_vehiculo.gasto_total, 0)  
+                        FROM   documentos 
+                               LEFT JOIN gastos_por_vehiculo 
+                                      ON documentos.documento = gastos_por_vehiculo.documento 
+                        WHERE  tipo_documento = 1 
+                               AND codigo_usuario = 19 ", 
+                '1', $codigo_usuario);
         return traer_filas($sql, $this->link);
     }
 
+    // obtener los documentos de un vehiculo
     public function getVehiculoDocumentos($codigo_documento)
     {
         $sql = sprintf("SELECT documentos.*, tipos_documentos.descripcion as tipo_documento_detalle  FROM documentos 

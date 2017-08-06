@@ -54,12 +54,14 @@
             <div class="form-group">
                 <label>Documento Afectado</label>
                 <select class="form-control" name="documento_afectado">
-                <?php foreach($vehiculos as $documento_o): ?>
-                    <!-- seleccionar codigo de documento por default -->
-                    <?php if ($documento_o[0] == $documento[6]) :?>
-                        <option value="<?php echo $documento_o[0] ?>" selected><?php echo $documento_o[0] . " - " . $documento_o[1] ?></option>
-                    <?php else : ?>
-                        <option value="<?php echo $documento_o[0] ?>"><?php echo $documento_o[0] . " - " . $documento_o[1] ?></option>
+                <?php foreach($vehiculos as $vehiculo_o): ?>
+                    <!-- seleccionar codigo de vehiculo por default -->
+                    <?php if ($vehiculo_o[0] == $documento[6]): ?>
+                        <option value="<?php echo $vehiculo_o[0] ?>" selected><?php echo $vehiculo_o[0] . " - " . $vehiculo_o[1] ?></option>
+
+                    <?php else: ?>
+                        <?php echo "<h1>Hey</h1>" ?>
+                        <option value="<?php echo $vehiculo_o[0] ?>"><?php echo $vehiculo_o[0] . " - " . $vehiculo_o[1] ?></option>
                     <?php endif; ?>
                 <?php endforeach; ?>
                 <option value="">Ninguno</option>
