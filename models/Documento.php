@@ -163,6 +163,8 @@ class Documento {
         return traer_filas($sql, $this->link);
     }
 
+    /* ############### reportes data ############# */
+
     // Obtener gastos por mes de los usuarios
     public function getGastosPorMes($codigo_usuario)
     {
@@ -173,4 +175,25 @@ class Documento {
 
         return traer_filas($sql, $this->link);
     }
+
+    public function getCountUsuarios()
+    {
+        $sql = "SELECT COUNT(*) as total_usuarios FROM usuarios";
+
+        return buscame_fila($sql, $this->link);
+    }
+
+    public function getCountDocumentos()
+    {
+        $sql = "SELECT COUNT(*) as total_documentos from documentos";
+        return buscame_fila($sql, $this->link);
+    }
+
+    public function getCountVehiculos()
+    {
+        $sql = "SELECT COUNT(*) as total_vehiculos from documentos WHERE tipo_documento = 1";
+        return buscame_fila($sql, $this->link);
+    }
+
+
 }

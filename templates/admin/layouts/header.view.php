@@ -172,6 +172,11 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <?php if($_SESSION['tipo_usuario'] == 0) : ?>
+                            <a href="/Carfax/controllers/ReportesController.php"><i class="fa fa-fw fa-bar-chart-o"></i> Reportes DashBoard</li></a>
+                        <?php endif; ?>
+                    </li>
                     <!-- <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li>
