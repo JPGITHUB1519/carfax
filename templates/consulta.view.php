@@ -36,9 +36,8 @@
                 <?php else : ?>
                     <option value="<?php echo $vehiculo[0] ?>"><?php echo $vehiculo[1] ?></option>
                 <?php endif; ?>
-                <option value="">No Aplicar</option>
             <?php endforeach; ?>
-
+            <option value="">No Aplicar</option>
             </select>
         </div>
         <div class="form-group">

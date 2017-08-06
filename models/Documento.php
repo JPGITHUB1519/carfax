@@ -44,6 +44,35 @@ class Documento {
         return traer_filas($sql, $this->link);
     }
 
+    // obtener un documento filtrado por el tipo de docunmento
+    public function getByTipoDocumento($tipo_documento)
+    {
+        $sql = sprintf("SELECT documentos.*, tipos_documentos.descripcion as tipo_documento_descripcion FROM documentos
+                        INNER JOIN tipos_documentos on tipos_documentos.tipo_documento = documentos.tipo_documento
+                        WHERE documentos.tipo_documento = '%s' ", 
+                $tipo_documento);
+        return traer_filas($sql, $this->link);
+    }
+
+    // obtener solo los documentos de tipo notificacion (ventas, compra, robados)
+    public function getNotificaciones()
+    {
+        $sql = "SELECT documentos.*, tipos_documentos.descripcion as tipo_documento_descripcion, documentos_vehiculo.foto as vehiculo_imagen FROM documentos
+            INNER JOIN tipos_documentos on tipos_documentos.tipo_documento = documentos.tipo_documento
+            LEFT JOIN documentos as documentos_vehiculo on documentos_vehiculo.documento = documentos.documento_afectado
+            WHERE documentos.tipo_documento IN(2,25,26)";
+        return traer_filas($sql, $this->link);
+    }
+
+    public function getNotificacionesByTipoDocumento($tipo_documento)
+    {
+        $sql = sprintf("SELECT documentos.*, tipos_documentos.descripcion as tipo_documento_descripcion, documentos_vehiculo.foto as vehiculo_imagen FROM documentos
+            INNER JOIN tipos_documentos on tipos_documentos.tipo_documento = documentos.tipo_documento
+            LEFT JOIN documentos as documentos_vehiculo on documentos_vehiculo.documento = documentos.documento_afectado
+            WHERE documentos.tipo_documento = '%s'", $tipo_documento);
+        return traer_filas($sql, $this->link);
+    }
+
     // obtener solo los documentos(no vehiculos)
     public function getAllButNoVehiculos($codigo_usuario)
     {
@@ -96,8 +125,8 @@ class Documento {
                                LEFT JOIN gastos_por_vehiculo 
                                       ON documentos.documento = gastos_por_vehiculo.documento 
                         WHERE  tipo_documento = 1 
-                               AND codigo_usuario = 19 ", 
-                '1', $codigo_usuario);
+                               AND codigo_usuario = '%s' ", 
+                $codigo_usuario);
         return traer_filas($sql, $this->link);
     }
 
@@ -131,6 +160,17 @@ class Documento {
         if($filtros["hasta"]) {
             $sql = $sql . sprintf(" AND documentos.fecha < '%s'", $filtros['hasta']);
         }
+        return traer_filas($sql, $this->link);
+    }
+
+    // Obtener gastos por mes de los usuarios
+    public function getGastosPorMes($codigo_usuario)
+    {
+        $sql = sprintf("SELECT DATEPART(MONTH, fecha), SUM(monto) 
+                       FROM documentos WHERE codigo_usuario = '%s'
+                       GROUP BY DATEPART(MONTH, fecha)", 
+                $codigo_usuario);
+
         return traer_filas($sql, $this->link);
     }
 }

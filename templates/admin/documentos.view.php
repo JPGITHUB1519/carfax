@@ -60,7 +60,7 @@
                         <option value="<?php echo $vehiculo_o[0] ?>" selected><?php echo $vehiculo_o[0] . " - " . $vehiculo_o[1] ?></option>
 
                     <?php else: ?>
-                        <?php echo "<h1>Hey</h1>" ?>
+                        <!-- <?php echo "<h1>Hey</h1>"; die(); ?> -->
                         <option value="<?php echo $vehiculo_o[0] ?>"><?php echo $vehiculo_o[0] . " - " . $vehiculo_o[1] ?></option>
                     <?php endif; ?>
                 <?php endforeach; ?>

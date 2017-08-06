@@ -46,6 +46,7 @@
         // guardar session
         $_SESSION["id"] = $last_inserted_usuario[0];
         $_SESSION["username"] = $last_inserted_usuario[3];
+        $_SESSION['tipo_usuario'] = $last_inserted_usuario[1];
         $_SESSION["email"] = $last_inserted_usuario[6];
         header('Location:' . '/Carfax/controllers/IndexController.php');
     }         

@@ -15,7 +15,7 @@
             $documento_obj = new Documento($link);
             $tipo_documento_obj = new TipoDocumento($link);
             $tipos_documentos = $tipo_documento_obj->select();
-            $vehiculos = $documento_obj->getVehiculos();
+            $vehiculos = $documento_obj->getVehiculosByUsuario($_SESSION['id']);
             if ($filtros["tipo_documento"] or $filtros['vehiculo'] or $filtros['desde'] or $filtros['hasta']) {
                 $documentos = $documento_obj->consultaFilterByUsuario($_SESSION['id'], $filtros);
             }

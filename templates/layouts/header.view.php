@@ -9,6 +9,7 @@
     <script type="text/javascript" src="../public/js/main.js"></script>
     <script type="text/javascript" src="../public/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../public/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../public/js/Chart.js"></script>
 </head>
 <body>
 
@@ -38,6 +39,11 @@
                     <li><a href="/Carfax/controllers/UsuariosController.php">Mantenimiento de Usuarios</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="/Carfax/controllers/ConsultaDocumentosController.php">Consulta de Documentos</a></li>
+                     <li role="separator" class="divider"></li>
+                    <li><a href="/Carfax/controllers/NotificacionesController.php">Notificaciones</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/Carfax/controllers/GastosPorMesController.php">Mis gastos Por Mes</a></li>
+                    <li><a href="/Carfax/controllers/GastosPorVehiculoController.php">Mis gastos Por Vehiculo</a></li>
                   </ul>
                 </li>
             </ul>

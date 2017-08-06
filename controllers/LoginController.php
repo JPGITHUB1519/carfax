@@ -19,6 +19,7 @@
         if (count($result) > 0) {
             session_start();
             $_SESSION["id"] = $result[0];
+            $_SESSION['tipo_usuario'] = $result[1];
             $_SESSION["username"] = $result[3];
             $_SESSION["email"] = $result[6];
             header('Location:' . '/Carfax/controllers/IndexController.php');
